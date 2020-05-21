@@ -5,14 +5,19 @@
   
 
   
-  <title>星辰大海</title>
+  <title>Kotlin基础学习1 | 星辰大海</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="星辰大海">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="本文只讲述Kotlin与Java区别大的地方，如需要详细了解细节，可到Kotlin官网查询Kotlin官网Kotlin中文网 此外，github上还有使用架构的项目集合，有很多Kotlin语言写的项目，并综合了jetpack，可以给时间充裕的朋友提供很大帮助。GitHub项目集合         关键字：architecture    关键字 val var12val a: Int &#x3D; 1;  &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin基础学习1">
+<meta property="og:url" content="http://yoursite.com/2020/05/22/Kotlin-1/index.html">
 <meta property="og:site_name" content="星辰大海">
+<meta property="og:description" content="本文只讲述Kotlin与Java区别大的地方，如需要详细了解细节，可到Kotlin官网查询Kotlin官网Kotlin中文网 此外，github上还有使用架构的项目集合，有很多Kotlin语言写的项目，并综合了jetpack，可以给时间充裕的朋友提供很大帮助。GitHub项目集合         关键字：architecture    关键字 val var12val a: Int &#x3D; 1;  &#x2F;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-21T20:48:49.000Z">
+<meta property="article:modified_time" content="2020-05-21T21:34:19.442Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
@@ -66,9 +71,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Kotlin-1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Kotlin-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/22/Kotlin-1/" class="article-date">
   <time datetime="2020-05-21T20:48:49.000Z" itemprop="datePublished">2020-05-22</time>
@@ -85,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/Kotlin-1/">Kotlin基础学习1</a>
+    <h1 class="article-title" itemprop="name">
+      Kotlin基础学习1
     </h1>
   
 
@@ -151,223 +154,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Java-10" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/21/Java-10/" class="article-date">
-  <time datetime="2020-05-21T12:15:39.000Z" itemprop="datePublished">2020-05-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/Java-10/">序列化</a>
-    </h1>
+    <a href="/2020/05/21/Java-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">序列化</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>什么序列化</strong></p>
-<ol>
-<li><p>由于在系统底层，数据的传输形式是简单的字节序列形式传递，即在底层，系统不认识对象，只认识字节序列，而为了达到进程通讯的目的，需要先将数据序列化，而序列化就是将对象转化字节序列的过程。相反地，当字节序列被运到相应的进程的时候，进程为了识别这些数据，就要将其序列化，即把字节序列转化为对象。</p>
-</li>
-<li><p>无论是在进程间通信、本地数据存储又或者是网络数据传输都离不开序列化的支持。而针对不同场景选择合适的序列化方案对于应用的性能有着极大的影响。</p>
-</li>
-<li><p>从广义上讲，数据序列化就是将数据结构或者是对象转换成我们可以存储或者传输的数据格式的一个过程，在序列化的过程中，数据结构或者对象将其状态信息写入到临时或者持久性的存储区中，而在对应的反序列化过程中，则可以说是生成的数据被还原成数据结构或对象的过程。</p>
-</li>
-<li><p>这样来说，数据序列化相当于是将我们原先的对象序列化概念做出了扩展，在对象序列化和反序列化中，我们熟知的有两种方法，其一是Java语言中提供的Serializable接口，其二是Android提供的Parcelable接口。而在这里，因为我们对这个概念做出了扩展，因此也需要考虑几种专门针对数据结构进行序列化的方法，如现在那些个开放API一般返回的数据都是JSON格式的，又或者是我们Android原生的SQLite数据库来实现数据的本地存储，从广义上来说，这些都可以算做是数据的序列化。</p>
-</li>
-</ol>
-<p><strong>序列化</strong> –&gt; 将数据结构或对象转换成二进制串的过程<br><strong>反序列化</strong> –&gt; 将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/21/Java-10/" data-id="ckahaqa120006f4tf6zroee13" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Java-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/21/Java-1/" class="article-date">
-  <time datetime="2020-05-21T06:27:52.000Z" itemprop="datePublished">2020-05-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/21/Java-1/">Java泛型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/21/Java-1/" data-id="ckahaqa0r0000f4tf9a1u0o1l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-NDK-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/15/NDK-1/" class="article-date">
-  <time datetime="2020-05-14T16:20:25.000Z" itemprop="datePublished">2020-05-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/NDK/">NDK</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/NDK-1/">NDK开发</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>NDK : Native Development Kit</p>
-<p><strong>需要使用NDK的场景：</strong></p>
-<ul>
-<li>进一步提升设备性能，以降低延迟，或运行计算密集型应用，如游戏或物理模拟。  </li>
-<li>重复使用您自己或其他开发者的 C 或 C++ 库。  </li>
-<li>在平台之间移植其应用。</li>
-</ul>
-<p>Android Studio 编译原生库的默认构建工具是 <a href="https://cmake.org/" target="_blank" rel="noopener">CMake</a>。由于很多现有项目都使用 ndk-build 编译工具包，因此 Android Studio 也支持 <a href="https://developer.android.google.cn/ndk/guides/ndk-build?hl=zh_cn" target="_blank" rel="noopener">ndk-build</a>。不过，如果您要创建新的原生库，则应使用 CMake。</p>
-<p><strong>要为您的应用编译和调试原生代码，您需要以下组件：</strong></p>
-<ul>
-<li>Android 原生开发套件 (NDK)：这套工具使您能在 Android 应用中使用 C 和 C++ 代码。  </li>
-<li>CMake：一款外部编译工具，可与 Gradle 搭配使用来编译原生库。如果您只计划使用 ndk-build，则不需要此组件。  </li>
-<li>LLDB：Android Studio 用于调试原生代码的调试程序。<br>如需了解如何安装这些组件，请参阅<a href="https://developer.android.google.cn/studio/projects/install-ndk?hl=zh_cn" target="_blank" rel="noopener">安装及配置 NDK 和 CMake</a>。  </li>
-</ul>
-<p><strong>Tip:</strong><br>在Android studio 中使用记得在setting的Plugins中勾上Android SDK Support，否则不能直接new C++文件  </p>
-<p><strong>构建NDK的主要组件：</strong></p>
-<ul>
-<li>原生共享库：NDK 从 C/C++ 源代码编译这些库或 <code>.so</code> 文件。</li>
-<li>原生静态库：NDK 也可编译静态库或 <code>.a</code> 文件，而您可将静态库关联到其他库。</li>
-<li>Java 原生接口 (JNI)：JNI 是 Java 和 C++ 组件用以互相通信的接口。本指南假设您具备 JNI 知识；如需了解相关信息，请查阅 <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html" target="_blank" rel="noopener">Java 原生接口规范</a>。</li>
-<li>应用二进制接口 (ABI)：ABI 可以非常精确地定义应用的机器代码在运行时应该如何与系统交互。NDK 根据这些定义编译 <code>.so</code> 文件。不同的 ABI 对应不同的架构：NDK 为 32 位 ARM、AArch64、x86 及 x86-64 提供 ABI 支持。有关详情，请参阅 <a href="https://developer.android.google.cn/ndk/guides/abis?hl=zh_cn" target="_blank" rel="noopener">ABI 管理</a>。</li>
-<li>清单：如果您编写的应用不包含 Java 组件，则必须在<a href="https://developer.android.google.cn/guide/topics/manifest/manifest-intro?hl=zh_cn" target="_blank" rel="noopener">清单</a>中声明 <code>NativeActivity</code> 类。<a href="https://developer.android.google.cn/ndk/guides/concepts?hl=zh_cn#naa" target="_blank" rel="noopener">原生 Activity 和应用</a>的“使用 <code>native_activity.h</code> 接口”部分进一步详细介绍了如何执行此操作。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/15/NDK-1/" data-id="ckahaqa14000bf4tfd3fd41bh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NDK/" rel="tag">NDK</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/11/Linux-1/" class="article-date">
-  <time datetime="2020-05-11T14:28:15.000Z" itemprop="datePublished">2020-05-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/11/Linux-1/">Linux初始学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>从今天开始系统的学习Linux，为了更好的使用开发环境。  </p>
-<p><strong>学习步骤</strong>  </p>
-<ol>
-<li>多使用Linux常用命令行</li>
-<li>搭建各种常见服务（DHCP, SAMBA, DNS, Apache, Mysql 等）</li>
-<li>能熟练的搭建好服务器后，理解每个服务的配置和优化</li>
-<li>多联系shell脚本，重复的东西一定要脚本化</li>
-</ol>
-<p>#的权限是管理员</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/11/Linux-1/" data-id="ckahaqa130009f4tf8l6o1t1a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         

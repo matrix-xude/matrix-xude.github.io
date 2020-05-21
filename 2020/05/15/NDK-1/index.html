@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>NDK开发 | 星辰大海</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NDK : Native Development Kit 需要使用NDK的场景：  进一步提升设备性能，以降低延迟，或运行计算密集型应用，如游戏或物理模拟。   重复使用您自己或其他开发者的 C 或 C++ 库。   在平台之间移植其应用。  Android Studio 编译原生库的默认构建工具是 CMake。由于很多现有项目都使用 ndk-build 编译工具包，因此 Android Stud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NDK开发">
+<meta property="og:url" content="http://yoursite.com/2020/05/15/NDK-1/index.html">
+<meta property="og:site_name" content="星辰大海">
+<meta property="og:description" content="NDK : Native Development Kit 需要使用NDK的场景：  进一步提升设备性能，以降低延迟，或运行计算密集型应用，如游戏或物理模拟。   重复使用您自己或其他开发者的 C 或 C++ 库。   在平台之间移植其应用。  Android Studio 编译原生库的默认构建工具是 CMake。由于很多现有项目都使用 ndk-build 编译工具包，因此 Android Stud">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-14T16:20:25.000Z">
+<meta property="article:modified_time" content="2020-05-14T21:02:51.800Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="NDK">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="星辰大海" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">星辰大海</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">这个宇宙最不能让人理解的地方就是，它是可以被理解的</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-NDK-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/15/NDK-1/" class="article-date">
+  <time datetime="2020-05-14T16:20:25.000Z" itemprop="datePublished">2020-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/NDK/">NDK</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      NDK开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>NDK : Native Development Kit</p>
+<p><strong>需要使用NDK的场景：</strong></p>
+<ul>
+<li>进一步提升设备性能，以降低延迟，或运行计算密集型应用，如游戏或物理模拟。  </li>
+<li>重复使用您自己或其他开发者的 C 或 C++ 库。  </li>
+<li>在平台之间移植其应用。</li>
+</ul>
+<p>Android Studio 编译原生库的默认构建工具是 <a href="https://cmake.org/" target="_blank" rel="noopener">CMake</a>。由于很多现有项目都使用 ndk-build 编译工具包，因此 Android Studio 也支持 <a href="https://developer.android.google.cn/ndk/guides/ndk-build?hl=zh_cn" target="_blank" rel="noopener">ndk-build</a>。不过，如果您要创建新的原生库，则应使用 CMake。</p>
+<p><strong>要为您的应用编译和调试原生代码，您需要以下组件：</strong></p>
+<ul>
+<li>Android 原生开发套件 (NDK)：这套工具使您能在 Android 应用中使用 C 和 C++ 代码。  </li>
+<li>CMake：一款外部编译工具，可与 Gradle 搭配使用来编译原生库。如果您只计划使用 ndk-build，则不需要此组件。  </li>
+<li>LLDB：Android Studio 用于调试原生代码的调试程序。<br>如需了解如何安装这些组件，请参阅<a href="https://developer.android.google.cn/studio/projects/install-ndk?hl=zh_cn" target="_blank" rel="noopener">安装及配置 NDK 和 CMake</a>。  </li>
+</ul>
+<p><strong>Tip:</strong><br>在Android studio 中使用记得在setting的Plugins中勾上Android SDK Support，否则不能直接new C++文件  </p>
+<p><strong>构建NDK的主要组件：</strong></p>
+<ul>
+<li>原生共享库：NDK 从 C/C++ 源代码编译这些库或 <code>.so</code> 文件。</li>
+<li>原生静态库：NDK 也可编译静态库或 <code>.a</code> 文件，而您可将静态库关联到其他库。</li>
+<li>Java 原生接口 (JNI)：JNI 是 Java 和 C++ 组件用以互相通信的接口。本指南假设您具备 JNI 知识；如需了解相关信息，请查阅 <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html" target="_blank" rel="noopener">Java 原生接口规范</a>。</li>
+<li>应用二进制接口 (ABI)：ABI 可以非常精确地定义应用的机器代码在运行时应该如何与系统交互。NDK 根据这些定义编译 <code>.so</code> 文件。不同的 ABI 对应不同的架构：NDK 为 32 位 ARM、AArch64、x86 及 x86-64 提供 ABI 支持。有关详情，请参阅 <a href="https://developer.android.google.cn/ndk/guides/abis?hl=zh_cn" target="_blank" rel="noopener">ABI 管理</a>。</li>
+<li>清单：如果您编写的应用不包含 Java 组件，则必须在<a href="https://developer.android.google.cn/guide/topics/manifest/manifest-intro?hl=zh_cn" target="_blank" rel="noopener">清单</a>中声明 <code>NativeActivity</code> 类。<a href="https://developer.android.google.cn/ndk/guides/concepts?hl=zh_cn#naa" target="_blank" rel="noopener">原生 Activity 和应用</a>的“使用 <code>native_activity.h</code> 接口”部分进一步详细介绍了如何执行此操作。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/15/NDK-1/" data-id="ckahaqa14000bf4tfd3fd41bh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NDK/" rel="tag">NDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/21/Java-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java泛型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/11/Linux-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux初始学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/NDK/">NDK</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NDK/" rel="tag">NDK</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NDK/" style="font-size: 10px;">NDK</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/22/Kotlin-1/">Kotlin基础学习1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/21/Java-10/">序列化</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/21/Java-1/">Java泛型</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/15/NDK-1/">NDK开发</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/11/Linux-1/">Linux初始学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
